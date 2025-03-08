@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RoyalCarDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdminTbl">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="int" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'F:\ASP.NET\ROYALCARRENTALSYSTEM\ROYALCARRENTALSYSTEM\APP_DATA\ROYALCARDATA.MDF.dbo.BookingData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BookingData">
+          <Key>
+            <PropertyRef Name="PickupPoint" />
+            <PropertyRef Name="DropLocation" />
+            <PropertyRef Name="date" />
+            <PropertyRef Name="Time" />
+            <PropertyRef Name="Car" />
+          </Key>
+          <Property Name="PickupPoint" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DropLocation" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="Time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Car" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'F:\ASP.NET\ROYALCARRENTALSYSTEM\ROYALCARRENTALSYSTEM\APP_DATA\ROYALCARDATA.MDF.dbo.ContactTBL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ContactTBL">
+          <Key>
+            <PropertyRef Name="fName" />
+            <PropertyRef Name="mailId" />
+            <PropertyRef Name="mobile" />
+            <PropertyRef Name="message" />
+          </Key>
+          <Property Name="fName" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="mailId" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="mobile" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="message" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'F:\ASP.NET\ROYALCARRENTALSYSTEM\ROYALCARRENTALSYSTEM\APP_DATA\ROYALCARDATA.MDF.dbo.PassengerData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PassengerData">
+          <Key>
+            <PropertyRef Name="firstName" />
+            <PropertyRef Name="lastName" />
+            <PropertyRef Name="gender" />
+            <PropertyRef Name="age" />
+            <PropertyRef Name="email" />
+            <PropertyRef Name="mobile" />
+            <PropertyRef Name="pass" />
+          </Key>
+          <Property Name="firstName" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="gender" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="age" Type="int" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="mobile" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="pass" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="RoyalCarDataModelStoreContainer">
+          <EntitySet Name="AdminTbl" EntityType="Self.AdminTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookingData" EntityType="Self.BookingData" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[BookingData].[PickupPoint] AS [PickupPoint], 
+[BookingData].[DropLocation] AS [DropLocation], 
+[BookingData].[date] AS [date], 
+[BookingData].[Time] AS [Time], 
+[BookingData].[Car] AS [Car]
+FROM [dbo].[BookingData] AS [BookingData]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ContactTBL" EntityType="Self.ContactTBL" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ContactTBL].[fName] AS [fName], 
+[ContactTBL].[mailId] AS [mailId], 
+[ContactTBL].[mobile] AS [mobile], 
+[ContactTBL].[message] AS [message]
+FROM [dbo].[ContactTBL] AS [ContactTBL]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PassengerData" EntityType="Self.PassengerData" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[PassengerData].[firstName] AS [firstName], 
+[PassengerData].[lastName] AS [lastName], 
+[PassengerData].[gender] AS [gender], 
+[PassengerData].[age] AS [age], 
+[PassengerData].[email] AS [email], 
+[PassengerData].[mobile] AS [mobile], 
+[PassengerData].[pass] AS [pass]
+FROM [dbo].[PassengerData] AS [PassengerData]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RoyalCarDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdminTbl">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BookingData">
+          <Key>
+            <PropertyRef Name="PickupPoint" />
+            <PropertyRef Name="DropLocation" />
+            <PropertyRef Name="date" />
+            <PropertyRef Name="Time" />
+            <PropertyRef Name="Car" />
+          </Key>
+          <Property Name="PickupPoint" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DropLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Car" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContactTBL">
+          <Key>
+            <PropertyRef Name="fName" />
+            <PropertyRef Name="mailId" />
+            <PropertyRef Name="mobile" />
+            <PropertyRef Name="message" />
+          </Key>
+          <Property Name="fName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mailId" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mobile" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="message" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PassengerData">
+          <Key>
+            <PropertyRef Name="firstName" />
+            <PropertyRef Name="lastName" />
+            <PropertyRef Name="gender" />
+            <PropertyRef Name="age" />
+            <PropertyRef Name="email" />
+            <PropertyRef Name="mobile" />
+            <PropertyRef Name="pass" />
+          </Key>
+          <Property Name="firstName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="age" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mobile" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="pass" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="RoyalCarDataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdminTbls" EntityType="Self.AdminTbl" />
+          <EntitySet Name="BookingDatas" EntityType="Self.BookingData" />
+          <EntitySet Name="ContactTBLs" EntityType="Self.ContactTBL" />
+          <EntitySet Name="PassengerDatas" EntityType="Self.PassengerData" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RoyalCarDataModelStoreContainer" CdmEntityContainer="RoyalCarDataEntities">
+          <EntitySetMapping Name="AdminTbls">
+            <EntityTypeMapping TypeName="RoyalCarDataModel.AdminTbl">
+              <MappingFragment StoreEntitySet="AdminTbl">
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookingDatas">
+            <EntityTypeMapping TypeName="RoyalCarDataModel.BookingData">
+              <MappingFragment StoreEntitySet="BookingData">
+                <ScalarProperty Name="PickupPoint" ColumnName="PickupPoint" />
+                <ScalarProperty Name="DropLocation" ColumnName="DropLocation" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Car" ColumnName="Car" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactTBLs">
+            <EntityTypeMapping TypeName="RoyalCarDataModel.ContactTBL">
+              <MappingFragment StoreEntitySet="ContactTBL">
+                <ScalarProperty Name="fName" ColumnName="fName" />
+                <ScalarProperty Name="mailId" ColumnName="mailId" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="message" ColumnName="message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PassengerDatas">
+            <EntityTypeMapping TypeName="RoyalCarDataModel.PassengerData">
+              <MappingFragment StoreEntitySet="PassengerData">
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

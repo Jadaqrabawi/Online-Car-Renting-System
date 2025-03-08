@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RoyalCarDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AdminTbl">
+    <Key>
+      <PropertyRef Name="AdminId" />
+    </Key>
+    <Property Name="AdminId" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BookingData">
+    <Key>
+      <PropertyRef Name="PickupPoint" />
+      <PropertyRef Name="DropLocation" />
+      <PropertyRef Name="date" />
+      <PropertyRef Name="Time" />
+      <PropertyRef Name="Car" />
+    </Key>
+    <Property Name="PickupPoint" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DropLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="Car" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContactTBL">
+    <Key>
+      <PropertyRef Name="fName" />
+      <PropertyRef Name="mailId" />
+      <PropertyRef Name="mobile" />
+      <PropertyRef Name="message" />
+    </Key>
+    <Property Name="fName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mailId" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mobile" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="message" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PassengerData">
+    <Key>
+      <PropertyRef Name="firstName" />
+      <PropertyRef Name="lastName" />
+      <PropertyRef Name="gender" />
+      <PropertyRef Name="age" />
+      <PropertyRef Name="email" />
+      <PropertyRef Name="mobile" />
+      <PropertyRef Name="pass" />
+    </Key>
+    <Property Name="firstName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lastName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="age" Type="Int32" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mobile" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pass" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="RoyalCarDataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdminTbls" EntityType="Self.AdminTbl" />
+    <EntitySet Name="BookingDatas" EntityType="Self.BookingData" />
+    <EntitySet Name="ContactTBLs" EntityType="Self.ContactTBL" />
+    <EntitySet Name="PassengerDatas" EntityType="Self.PassengerData" />
+  </EntityContainer>
+</Schema>

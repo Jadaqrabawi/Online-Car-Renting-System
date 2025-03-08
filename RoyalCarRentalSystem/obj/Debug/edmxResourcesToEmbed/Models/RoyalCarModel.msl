@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RoyalCarDataModelStoreContainer" CdmEntityContainer="RoyalCarDataEntities">
+    <EntitySetMapping Name="AdminTbls">
+      <EntityTypeMapping TypeName="RoyalCarDataModel.AdminTbl">
+        <MappingFragment StoreEntitySet="AdminTbl">
+          <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BookingDatas">
+      <EntityTypeMapping TypeName="RoyalCarDataModel.BookingData">
+        <MappingFragment StoreEntitySet="BookingData">
+          <ScalarProperty Name="PickupPoint" ColumnName="PickupPoint" />
+          <ScalarProperty Name="DropLocation" ColumnName="DropLocation" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Car" ColumnName="Car" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactTBLs">
+      <EntityTypeMapping TypeName="RoyalCarDataModel.ContactTBL">
+        <MappingFragment StoreEntitySet="ContactTBL">
+          <ScalarProperty Name="fName" ColumnName="fName" />
+          <ScalarProperty Name="mailId" ColumnName="mailId" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="message" ColumnName="message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PassengerDatas">
+      <EntityTypeMapping TypeName="RoyalCarDataModel.PassengerData">
+        <MappingFragment StoreEntitySet="PassengerData">
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
