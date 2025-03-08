@@ -1,46 +1,50 @@
-﻿@model  RoyalCarRentalSystem.Models.PassengerData
+﻿@model RoyalCarRentalSystem.Models.PassengerData
 @{
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
 
-<center style="background-color:aqua">
-
-    @using (Html.BeginForm("Login", "Home"))
-    {
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <table borger="1" backColor="Yellow">
-            <tr>
-                <td colspan="2" align="center"><h2>Sign In</h2></td>
-            </tr>
-            <tr>
-                <td>@Html.LabelFor(m => m.email)</td>
-                <td>@Html.TextBoxFor(m => m.email)</td>
-            </tr>
-            <tr>
-                <td>@Html.LabelFor(m => m.pass)</td>
-                <td>@Html.TextBoxFor(m => m.pass)</td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center">
-                    <input type="Submit" value="Login" />
-
-                </td>
-                <td align="center" style="color: blue; margin-top: 105rem;" >
-                   <a class="nav-item nav-link">@Html.ActionLink("Registration", "Registration")</a>                   
-                </td>
-            </tr>
-        </table>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-    }
-
-
+<center>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">Sign In</h3>
+                    </div>
+                    <div class="card-body">
+                        @using (Html.BeginForm("Login", "Home"))
+                        {
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.email, "Email Address")
+                                @Html.TextBoxFor(m => m.email, new { 
+                                    @class = "form-control", 
+                                    placeholder = "Enter email",
+                                    type = "email",
+                                    required = "required"
+                                })
+                                @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
+                            </div>
+                            
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.pass, "Password")
+                                @Html.PasswordFor(m => m.pass, new { 
+                                    @class = "form-control", 
+                                    placeholder = "Enter password",
+                                    required = "required"
+                                })
+                                @Html.ValidationMessageFor(m => m.pass, "", new { @class = "text-danger" })
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            <div class="text-center mt-3">
+                                <a href="#" class="text-secondary">Forgot Password?</a><br>
+                                Don't have an account? @Html.ActionLink("Register here", "Registration", "Home", null, new { @class = "text-primary" })
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </center>

@@ -1,0 +1,33 @@
+@{
+    ViewBag.Title = "Booking History";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container-fluid pt-5">
+    <div class="container pt-5">
+        <h1 class="display-4 text-center mb-5">Booking History</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="bg-dark text-white">
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>Vehicle</th>
+                        <th>Pickup Date</th>
+                        <th>Total Cost</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dummy Data -->
+                    <tr>
+                        <td>#1001</td>
+                        <td>2022 Toyota Camry</td>
+                        <td>2023-08-01</td>
+                        <td>$325</td>
+                        <td><span class="badge badge-success">Completed</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

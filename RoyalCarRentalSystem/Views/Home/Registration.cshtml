@@ -1,52 +1,86 @@
 ﻿@model RoyalCarRentalSystem.Models.PassengerData
-
 @{
     ViewBag.Title = "Registration";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
 
-<center style="background-color:aqua">
-    @using (Html.BeginForm("Registration", "Home", FormMethod.Post))
-    {
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <table border="1" backColor="Yellow">
-            <tr>
-                <td colspan="2" align="center"><h2>Register</h2></td>
-            </tr>
-            <tr>
-                <td>@Html.LabelFor(m => m.firstName)</td>
-                <td>@Html.TextBoxFor(m => m.firstName)</td>
-            </tr>
-            <tr>
-                <td>@Html.LabelFor(m => m.lastName)</td>
-                <td>@Html.TextBoxFor(m => m.lastName)</td>
-            </tr>
-            <tr>
-                <td>@Html.LabelFor(m => m.email)</td>
-                <td>@Html.TextBoxFor(m => m.email)</td>
-            </tr>
-            <tr>
-                <td>@Html.LabelFor(m => m.mobile)</td>
-                <td>@Html.TextBoxFor(m => m.mobile)</td>
-            </tr>
-            <tr>
-                <td>@Html.LabelFor(m => m.pass)</td>
-                <td>@Html.TextBoxFor(m => m.pass)</td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center">
-                    <input type="Submit" value="Register" />
-                </td>
-            </tr>
-        </table>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-    }
+<center>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">Create New Account</h3>
+                    </div>
+                    <div class="card-body">
+                        @using (Html.BeginForm("Registration", "Home", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+                        {
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.firstName, "First Name")
+                                        @Html.TextBoxFor(m => m.firstName, new { 
+                                            @class = "form-control", 
+                                            placeholder = "Enter first name",
+                                            required = "required"
+                                        })
+                                        @Html.ValidationMessageFor(m => m.firstName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.lastName, "Last Name")
+                                        @Html.TextBoxFor(m => m.lastName, new { 
+                                            @class = "form-control", 
+                                            placeholder = "Enter last name",
+                                            required = "required"
+                                        })
+                                        @Html.ValidationMessageFor(m => m.lastName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.email, "Email Address")
+                                @Html.TextBoxFor(m => m.email, new { 
+                                    @class = "form-control", 
+                                    placeholder = "Enter email",
+                                    type = "email",
+                                    required = "required"
+                                })
+                                @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.mobile, "Mobile Number")
+                                @Html.TextBoxFor(m => m.mobile, new { 
+                                    @class = "form-control", 
+                                    placeholder = "Enter mobile number",
+                                    type = "tel",
+                                    pattern = "[0-9]{10}",
+                                    required = "required"
+                                })
+                                @Html.ValidationMessageFor(m => m.mobile, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.pass, "Password")
+                                @Html.PasswordFor(m => m.pass, new { 
+                                    @class = "form-control", 
+                                    placeholder = "Create password",
+                                    required = "required"
+                                })
+                                @Html.ValidationMessageFor(m => m.pass, "", new { @class = "text-danger" })
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                            <div class="text-center mt-3">
+                                Already have an account? @Html.ActionLink("Login here", "Login", "Home", null, new { @class = "text-primary" })
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </center>

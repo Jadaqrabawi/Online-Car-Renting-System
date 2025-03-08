@@ -14,7 +14,7 @@
           <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'F:\ASP.NET\ROYALCARRENTALSYSTEM\ROYALCARRENTALSYSTEM\APP_DATA\ROYALCARDATA.MDF.dbo.BookingData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'F:\ASP.NET\RoyalCARRENTALSYSTEM\RoyalCARRENTALSYSTEM\APP_DATA\RoyalCARDATA.MDF.dbo.BookingData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="BookingData">
           <Key>
             <PropertyRef Name="PickupPoint" />
@@ -30,7 +30,7 @@ warning 6002: The table/view 'F:\ASP.NET\ROYALCARRENTALSYSTEM\ROYALCARRENTALSYST
           <Property Name="Car" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'F:\ASP.NET\ROYALCARRENTALSYSTEM\ROYALCARRENTALSYSTEM\APP_DATA\ROYALCARDATA.MDF.dbo.ContactTBL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'F:\ASP.NET\RoyalCARRENTALSYSTEM\RoyalCARRENTALSYSTEM\APP_DATA\RoyalCARDATA.MDF.dbo.ContactTBL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ContactTBL">
           <Key>
             <PropertyRef Name="fName" />
@@ -44,7 +44,7 @@ warning 6002: The table/view 'F:\ASP.NET\ROYALCARRENTALSYSTEM\ROYALCARRENTALSYST
           <Property Name="message" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'F:\ASP.NET\ROYALCARRENTALSYSTEM\ROYALCARRENTALSYSTEM\APP_DATA\ROYALCARDATA.MDF.dbo.PassengerData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'F:\ASP.NET\RoyalCARRENTALSYSTEM\RoyalCARRENTALSYSTEM\APP_DATA\RoyalCARDATA.MDF.dbo.PassengerData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="PassengerData">
           <Key>
             <PropertyRef Name="firstName" />

@@ -1,0 +1,46 @@
+@model RoyalCarRentalSystem.Models.Car
+@{
+    ViewBag.Title = "Book Vehicle";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container-fluid pt-5">
+    <div class="container pt-5">
+        <h1 class="display-4 text-center mb-5">Book Your Vehicle</h1>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card shadow">
+                    <img src="@Model.ImageUrl" class="card-img-top" alt="@Model.Model">
+                    <div class="card-body">
+                        <h4 class="card-title">@Model.Make @Model.Model</h4>
+                        <p class="card-text">$@Model.PricePerDay/day</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h4 class="mb-4">Driver Information</h4>
+                        <form id="bookingForm">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Driver's License Number</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#paymentModal">
+                                Proceed to Payment
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Include the payment modal from your layout -->

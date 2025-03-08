@@ -11,15 +11,30 @@ namespace RoyalCarRentalSystem.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class PassengerData
-    {
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string gender { get; set; }
-        public int age { get; set; }
-        public string email { get; set; }
-        public decimal mobile { get; set; }
-        public string pass { get; set; }
-    }
+    using System.ComponentModel.DataAnnotations;
+
+    public class PassengerData
+{
+    [Required]
+    [Display(Name = "First Name")]
+    public string firstName { get; set; }
+
+    [Required]
+    [Display(Name = "Last Name")]
+    public string lastName { get; set; }
+
+    [Required]
+    [EmailAddress]
+    public string email { get; set; }
+
+    [Required]
+    [Phone]
+    [StringLength(10, MinimumLength = 10)]
+    public string mobile { get; set; }
+
+    [Required]
+    [DataType(DataType.Password)]
+    [MinLength(6)]
+    public string pass { get; set; }
+}
 }

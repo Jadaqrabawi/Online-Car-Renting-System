@@ -7,10 +7,13 @@ using RoyalCarRentalSystem.Models;
 using System.Data;
 using System.Data.Entity;
 
+
 namespace RoyalCarRentalSystem.Controllers
 {
     public class HomeController : Controller
     {
+        private object db;
+
         // GET: Home
         public ActionResult Index()
         {
@@ -45,10 +48,11 @@ namespace RoyalCarRentalSystem.Controllers
             return View();
         }
 
-        public ActionResult SearchResults(string pickupLocation, string dropLocation, string pickupDate, string pickupTime, string car)
+public ActionResult History()
 {
-   return View();
+    return View();
 }
+
         [HttpPost]
         public ActionResult Registration(PassengerData passengerData)
         {
