@@ -32,7 +32,7 @@ namespace RoyalCarRentalSystem.Controllers
         {
             return View();
         }
-        public ActionResult  Features()
+        public ActionResult Features()
         {
             return View();
         }
@@ -44,6 +44,11 @@ namespace RoyalCarRentalSystem.Controllers
         {
             return View();
         }
+
+        public ActionResult SearchResults(string pickupLocation, string dropLocation, string pickupDate, string pickupTime, string car)
+{
+   return View();
+}
         [HttpPost]
         public ActionResult Registration(PassengerData passengerData)
         {
@@ -53,7 +58,7 @@ namespace RoyalCarRentalSystem.Controllers
                 {
                     db.PassengerDatas.Add(passengerData);
                     db.SaveChanges();
-                    ViewBag.mesaage = "Registration Successfully";
+                    ViewBag.message = "Registration Successfully";
                     ModelState.Clear();
                 }
             }
