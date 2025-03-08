@@ -1,6 +1,6 @@
 namespace RoyalCarRentalSystem.Models
 {
-    public class BookingData
+    public class BookingDetails
     {
         public int Id { get; set; }
         public string Name { get; set; }

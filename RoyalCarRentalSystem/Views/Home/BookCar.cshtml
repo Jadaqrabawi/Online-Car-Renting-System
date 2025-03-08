@@ -1,0 +1,42 @@
+@model RoyalCarRentalSystem.Models.Car
+
+@{
+    ViewBag.Title = "Book Car";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<h2>Book Car</h2>
+
+<div class="card">
+    <div class="card-header">
+        Car Details
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">@Model.Make @Model.Model</h5>
+        <p class="card-text">Year: @Model.Year</p>
+        <p class="card-text">Price Per Day: @Model.PricePerDay</p>
+        <p class="card-text">Seats: @Model.Seats</p>
+        <p class="card-text">Luggage: @Model.Luggage</p>
+        <p class="card-text">Transmission: @Model.Transmission</p>
+        <p class="card-text">Fuel Type: @Model.FuelType</p>
+    </div>
+</div>
+
+<div class="mt-4">
+    <h3>Enter Your Details</h3>
+    <form action="@Url.Action("ProcessBooking", "Home")" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+            <label for="drivingLicense">Driving License</label>
+            <input type="text" class="form-control" id="drivingLicense" name="drivingLicense" required />
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Proceed to Pay</button>
+    </form>
+</div>
